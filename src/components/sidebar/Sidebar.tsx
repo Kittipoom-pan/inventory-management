@@ -31,7 +31,7 @@ const Sidebar = () => {
         <img
           src={NextIcon}
           className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
- border-2 rounded-full ${!open && "rotate-180"}`}
+                      border-2 rounded-full ${!open && "rotate-180"}`}
           onClick={() => setOpen(!open)}
         />
         <div className="flex gap-x-4 items-center">
@@ -51,14 +51,15 @@ const Sidebar = () => {
         </div>
         <ul className="pt-6">
           {navItems.map((item, index) => (
-            <li>
+            <li key={index}>
               <NavLink
                 to={`/${item.title.toLocaleLowerCase()}`}
-                key={index}
-                className={`flex rounded-md p-2 cursor-pointer hover:bg-light-white text-white-300 text-sm items-center gap-x-4 
-                          ${item.gap ? "mt-9" : "mt-2"} ${
-                  index === 0 && "bg-light-white"
-                } `}
+                className={({ isActive }) =>
+                  `flex rounded-md p-2 cursor-pointer hover:bg-slate-100 text-sm items-center gap-x-4 
+                    ${isActive ? "bg-slate-100" : ""}
+                    ${item.gap ? "mt-9" : "mt-2"}
+                  `
+                }
               >
                 {item.icon}
                 <span
