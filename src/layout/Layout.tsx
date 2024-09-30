@@ -7,7 +7,7 @@ const Layout = () => {
   return (
     <div>
       <Navbar />
-      <div className="flex bg-gray-300">
+      <div className="flex bg-gray-200">
         <Sidebar />
         <div>
           <div>

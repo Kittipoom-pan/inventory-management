@@ -8,11 +8,10 @@ import {
 } from "@mui/icons-material";
 import InventoryIcon from "../../assets/icon/inventory.svg";
 import NextIcon from "../../assets/icon/next-button.png";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   const [open, setOpen] = useState(true);
-  const { pathname } = useLocation();
 
   const navItems = [
     { title: "Dashboard", icon: <Home /> },
