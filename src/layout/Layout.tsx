@@ -10,9 +10,7 @@ const Layout = () => {
       <div className="flex bg-gray-200">
         <Sidebar />
         <div>
-          <div>
-            <Outlet />
-          </div>
+          <Outlet />
         </div>
       </div>
       <Footer />

@@ -1,25 +1,44 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
-import Product from "./pages/Product";
-import Layout from "./layout/Layout";
-import User from "./pages/User";
+import { lazy, Suspense } from "react";
+import Spinner from "./components/spinner/spinner";
+
+const Dashboard = lazy(() => import("./pages/Dashboard"));
+const Product = lazy(() => import("./pages/Product"));
+const User = lazy(() => import("./pages/User"));
+const Layout = lazy(() => import("./layout/Layout"));
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
+    element: (
+      <Suspense fallback={<Spinner />}>
+        <Layout />
+      </Suspense>
+    ),
     children: [
       {
         path: "/",
-        element: <Dashboard />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <Dashboard />
+          </Suspense>
+        ),
       },
       {
         path: "/product",
-        element: <Product />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <Product />
+          </Suspense>
+        ),
       },
       {
         path: "/user",
-        element: <User />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <User />
+          </Suspense>
+        ),
       },
     ],
   },
