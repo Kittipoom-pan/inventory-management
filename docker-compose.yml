@@ -1,0 +1,12 @@
+version: "2.29.1"
+
+services:
+  inventory-management:
+    image: inventory-management
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:3000
